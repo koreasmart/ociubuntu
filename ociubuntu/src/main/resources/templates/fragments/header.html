@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<!-- 상단메뉴 -->
+	<div id="header" th:fragment="headerFragment" th:object="${session.S_MEMBER_INFO}">
+		header.html 의 headerFragment 조각<br>
+		header 메뉴<br>
+		<a th:href="@{/member/addMember}">01회원가입</a>
+		<a th:if="${session.S_MEMBER_INFO != null and session.S_MEMBER_INFO.loginLevel < 2}" th:href="@{/member/memberList}">02회원목록</a>
+		<a th:if="${session.S_MEMBER_INFO != null and session.S_MEMBER_INFO.loginLevel != 3}" th:href="@{/goods/addGoods}">03상품등록</a>
+		<a th:if="${session.S_MEMBER_INFO != null}" th:href="@{/goods/goodsList}">04상품목록</a>
+		<a th:if="${session.S_MEMBER_INFO == null}" th:href="@{/member/login}">05로그인</a>
+		<a th:if="${session.S_MEMBER_INFO != null}" th:href="@{/member/logout}">06로그아웃</a>
+		<a th:if="${session.S_MEMBER_INFO != null}" th:href="@{/goods/sellerList}">07판매자목록조회</a>
+		<br><br>
+		
+		<style>
+			
+			.loginInfo {
+			  width: 200px;
+			  height: 20px;
+			  display: block;
+			  float:right;
+			  line-height: 20px;
+			}
+			.keepLogin{
+			  width: 200px;
+			  height: 20px;
+			  margin-right: 10px;
+			  display: block;
+			  float:right;
+			  line-height: 20px;
+			}
+		
+			.toggleSwitch {
+			  width: 40px;
+			  height: 20px;
+			  display: block;
+			  float:right;
+			  position: relative;
+			  border-radius: 30px;
+			  background-color: #fff;
+			  box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
+			  cursor: pointer;
+			}
+			
+			.toggleSwitch .toggleButton {
+			  width: 16px;
+			  height: 16px;
+			  position: absolute;
+			  top: 50%;
+			  left: 4px;
+			  transform: translateY(-50%);
+			  border-radius: 50%;
+			  background: #f03d3d;
+			}
+			
+			#toggle:checked ~ .toggleSwitch {
+			  background: #f03d3d;
+			}
+			
+			#toggle:checked ~ .toggleSwitch .toggleButton {
+			  left: calc(100% - 20px);
+			  background: #fff;
+			}
+			
+			.toggleSwitch, .toggleButton {
+			  transition: all 0.2s ease-in;
+			}
+		</style>
+		<div th:if="${session.S_MEMBER_INFO != null}" style="text-align: right;">
+			<input type="checkbox" id="toggle" hidden="hidden" /> 
+			<label for="toggle" class="toggleSwitch">
+			  <span class="toggleButton"></span>
+			</label>
+			<label class="keepLogin"> 하루동안 로그인유지 </label>
+			<label class="loginInfo">[[${session.S_MEMBER_INFO.loginId + ' | ' + session.S_MEMBER_INFO.loginName + '님이 로그인하셨습니다.'}]]</label>
+		</div>
+	</div>
+</html>
