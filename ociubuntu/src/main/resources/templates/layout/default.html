@@ -2,16 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	  
-<head th:replace="fragments/head :: headFragment"></head>
+<head th:replace="~{fragments/head :: headFragment}"></head>
 
 <body>
 	<div id="wrapper">
 		<!-- start header -->
-		<div th:replace="fragments/header :: headerFragment"></div>
+		<div th:replace="~{fragments/header :: headerFragment}"></div>
 		<!-- end header -->
 		
 		<!-- start aside -->
-		<div th:replace="fragments/asidemenu :: asideFragment"></div>
+		<div th:replace="~{fragments/asidemenu :: asideFragment}"></div>
 		<!-- end aside -->
 		
 		<!-- start contents -->
@@ -22,7 +22,7 @@
 		<!-- end contents -->
 		
 		<!-- start footer -->
-		<div th:replace="fragments/footer :: footerFragment"></div>
+		<div th:replace="~{fragments/footer :: footerFragment}"></div>
 		<!-- end footer -->
 	</div>
 	<!-- 사용자 정의 JS 하단 -->
