@@ -28,7 +28,7 @@
 					<img th:src="@{'/' + ${l.filePath}}" th:alt="${l.fileOriginalName}" style="width: 100px;"/>
 				</td>
 				<td>
-					<a th:href="@{/file/deleteFile(fileIdx=${l.filePath})}">삭제</a>
+					<a th:href="@{/file/deleteFile(fileIdx=${l.fileIdx})}">삭제</a>
 				</td>
 			</tr>
 			<tr th:unless="${not #lists.isEmpty(fileList)}">
