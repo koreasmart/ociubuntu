@@ -13,6 +13,8 @@
 				<th>번호</th>
 				<th>파일이름</th>
 				<th>다운로드</th>
+				<th>이미지</th>
+				<th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,6 +26,9 @@
 				</td>
 				<td>
 					<img th:src="@{'/' + ${l.filePath}}" th:alt="${l.fileOriginalName}" style="width: 100px;"/>
+				</td>
+				<td>
+					<a th:href="@{/file/deleteFile(fileIdx=${l.filePath})}">삭제</a>
 				</td>
 			</tr>
 			<tr th:unless="${not #lists.isEmpty(fileList)}">
