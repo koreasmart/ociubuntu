@@ -69,7 +69,7 @@ public class WebConfig implements WebMvcConfigurer{
 		}else if(os.contains("linux")) {
 			rootPath = "file:///";			
 		}else if(os.contains("mac")){
-			rootPath = "file:///Users/";
+			rootPath = "file:///Users/Shared";
 		}
 		return rootPath;
 	}

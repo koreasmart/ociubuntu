@@ -88,7 +88,7 @@ public class FileUtil {
 					
 					String os = System.getProperty("os.name").toLowerCase();
 					
-					if(os.contains("mac")) fileRealPath = "/User" + fileRealPath;
+					if(os.contains("mac")) fileRealPath = "/Users/Shared" + fileRealPath;
 					
 					// Paths 클래스를 통한 파일의 경로 ( 주소의 / 경로와 실제 os의 경로 \ 와 차이)
 					path = Paths.get(fileRealPath + "resources/" + directory + current.format(format)).toString();
