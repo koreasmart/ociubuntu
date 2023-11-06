@@ -51,11 +51,33 @@ public class WebConfig implements WebMvcConfigurer{
 	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		String rootPath = getOSFilePath();
 		registry.addResourceHandler("/resources/**")
-				.addResourceLocations("file:///" + filePath + "resources/")
+				.addResourceLocations(rootPath + filePath + "resources/")
 				.setCachePeriod(3600)
 				.resourceChain(true)
 				.addResolver(new PathResourceResolver());
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 	}
+	
+	public String getOSFilePath() {
+		String rootPath = "file:///";
+		String os = System.getProperty("os.name").toLowerCase();
+		
+		if(os.contains("win")) {
+			rootPath = "file:///c:";
+		}else if(os.contains("linux")) {
+			rootPath = "file:///";			
+		}else if(os.contains("mac")){
+			rootPath = "file:///Users/";
+		}
+		return rootPath;
+	}
 }
+
+
+
+
+
+
+

@@ -40,7 +40,7 @@ public class FileUtil {
 		
 		return isDelete;
 	}
-	
+		
 	public List<FileDto> parseFileInfo(MultipartFile[] uploadfile){
 		
 		// 파일이 존재하지 않은 경우 
@@ -85,6 +85,10 @@ public class FileUtil {
 						directory = "files" + File.separator;
 						
 					}
+					
+					String os = System.getProperty("os.name").toLowerCase();
+					
+					if(os.contains("mac")) fileRealPath = "/User" + fileRealPath;
 					
 					// Paths 클래스를 통한 파일의 경로 ( 주소의 / 경로와 실제 os의 경로 \ 와 차이)
 					path = Paths.get(fileRealPath + "resources/" + directory + current.format(format)).toString();
