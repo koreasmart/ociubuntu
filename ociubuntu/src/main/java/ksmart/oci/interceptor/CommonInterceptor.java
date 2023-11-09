@@ -42,11 +42,11 @@ public class CommonInterceptor implements HandlerInterceptor{
 		// TODO 주소요청시에 어떤 사용자 ip가 어떤 주소를 요청하고 파라미터 무엇인지 로그 작업
 		log.info("ACCESS INFO ==================================================");
 		log.info("PORT 		::::::::	{}", request.getLocalPort());
-		log.info("ServerName		::::::::	{}", request.getServerName());
+		log.info("ServerName	::::::::	{}", request.getServerName());
 		log.info("Method 		::::::::	{}", request.getMethod());
 		log.info("URI 		::::::::	{}", request.getRequestURI());
-		log.info("CLIENT IP		::::::::	{}", request.getRemoteAddr());
-		log.info("parameter		::::::::	{}", param);
+		log.info("CLIENT IP	::::::::	{}", request.getRemoteAddr());
+		log.info("parameter	::::::::	{}", param);
 		log.info("ACCESS INFO ==================================================");
 		
 		
