@@ -24,7 +24,7 @@
 		</encoder>
 	</appender>
 	
-    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender" filePermissions="rw-rw-r--">
         <file>${LOG_PATH_NAME}</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
