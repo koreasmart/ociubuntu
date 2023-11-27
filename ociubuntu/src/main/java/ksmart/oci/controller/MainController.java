@@ -16,7 +16,7 @@ public class MainController {
 
 	@GetMapping("/")
 	public String main(Model model, HttpServletRequest request) {
-		log.info(request.getRemoteAddr());
+		log.info(request.getServerName());
 		return "main";
 	}
 }
